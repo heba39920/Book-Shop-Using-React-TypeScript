@@ -1,0 +1,33 @@
+@charset "UTF-8";
+@media screen and (max-width: 768px) {
+  .book-img {
+    width: 400px;
+    height: 400px;
+    margin-left: -70px;
+  }
+}
+.swiper-button-prev {
+  padding-left: 8px;
+}
+
+.swiper-button-next {
+  padding-right: 8px;
+}
+
+.swiper-button-prev:after, .swiper-button-next:after {
+  content: "←";
+  background-color: #fff;
+  font-size: 25px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: 1px solid #ED553B;
+  padding: 6px;
+  height: 45px;
+}
+
+.swiper-button-next:after {
+  content: "→";
+}/*# sourceMappingURL=MainSection.css.map */

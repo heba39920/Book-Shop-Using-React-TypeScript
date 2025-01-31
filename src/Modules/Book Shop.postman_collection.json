@@ -1,0 +1,1142 @@
+{
+	"info": {
+		"_postman_id": "d5d7f93d-9b7c-4dec-b3e1-69caaf46de86",
+		"name": "Book Shop",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39141530"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "language",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\":\"hadeer99\",\r\n    \"last_name\":\"magdy\",\r\n    \"password\":\"@Hadeer123\",\r\n    \"email\":\"hadeer99@gmail.com\",\r\n    \"role\":\"Admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://upskilling-egypt.com:3007/api/auth/register",
+									"protocol": "https",
+									"host": [
+										"upskilling-egypt",
+										"com"
+									],
+									"port": "3007",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "language",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"abdelrhmanfarghaly199888@gmail.com\",\r\n    \"password\": \"@123Abdo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/auth/login",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change_password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\":\"@123Abdo\",\r\n    \"password_new\":\"@123Abdoo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/auth/change-password",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://upskilling-egypt.com:3005/api/auth/logout",
+									"protocol": "http",
+									"host": [
+										"upskilling-egypt",
+										"com"
+									],
+									"port": "3005",
+									"path": [
+										"api",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "forgotPassword",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"abdelrhmanfarghaly1998@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://upskilling-egypt.com:3005/api/auth/forgot-password",
+									"protocol": "http",
+									"host": [
+										"upskilling-egypt",
+										"com"
+									],
+									"port": "3005",
+									"path": [
+										"api",
+										"auth",
+										"forgot-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "resetPassword",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"otp\":\"397119\",\r\n    \"email\":\"abdelrhmanfarghaly1998@gmail.com\",\r\n    \"password\":\"12345abdo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://upskilling-egypt.com:3005/api/auth/reset-password",
+									"protocol": "https",
+									"host": [
+										"upskilling-egypt",
+										"com"
+									],
+									"port": "3005",
+									"path": [
+										"api",
+										"auth",
+										"reset-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh_tokens",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/auth/refresh-tokens?refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjQ1MzA1MGY5OTMxN2NiZGZlOWI2NWEiLCJlbWFpbCI6ImFiZGVscmhtYW5mYXJnaGFseTE5OThAZ21haWwuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzE1ODExMjkzLCJleHAiOjE3MTY0MTYwOTN9.dnByiOwZWWggwAVRd9DUsez7UjJrgBr_PK-YHc6Qoi",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"refresh-tokens"
+									],
+									"query": [
+										{
+											"key": "refreshToken",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjQ1MzA1MGY5OTMxN2NiZGZlOWI2NWEiLCJlbWFpbCI6ImFiZGVscmhtYW5mYXJnaGFseTE5OThAZ21haWwuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzE1ODExMjkzLCJleHAiOjE3MTY0MTYwOTN9.dnByiOwZWWggwAVRd9DUsez7UjJrgBr_PK-YHc6Qoi"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Book",
+					"item": [
+						{
+							"name": "getAll",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "page",
+										"value": "1"
+									},
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									},
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{local}}/api/book?page=1&limit=10&search=book1",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"book"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "search",
+											"value": "book1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOne",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/book/66454bfac955f8d8c33b7873",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"book",
+										"66454bfac955f8d8c33b7873"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzFmN2FlNGFjODY0NjNmOWRkZGEzMWQiLCJlbWFpbCI6ImhhZGVlcjk5QGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTczMDExNjM1NiwiZXhwIjoxNzY2MTE2MzU2fQ.jhajj1ExhlkLLWczb_ajdm-AxgIc-8yJCNtkQifPFW0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"bookman\",\r\n    \"description\": \"bookdesc\",\r\n    \"author\": \"Adam\",\r\n    \"price\": 390,\r\n    \"category\": \"671f7b52ac86463f9ddda32b\",\r\n    \"image\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngimg.com%2Fimage%2F2111&psig=AOvVaw3q_aJxHrlntSToEYytigFM&ust=1730203753283000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNCP-ruFsYkDFQAAAAAdAAAAABAJ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/book",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"book"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"rwaya\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/book/66454bfac955f8d8c33b7873",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"book",
+										"66454bfac955f8d8c33b7873"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/book/66454bfac955f8d8c33b7873",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"book",
+										"66454bfac955f8d8c33b7873"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "getAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/category",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOne",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/category/664545b5b44b267c97944325",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"category",
+										"664545b5b44b267c97944325"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzFmN2FlNGFjODY0NjNmOWRkZGEzMWQiLCJlbWFpbCI6ImhhZGVlcjk5QGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTczMDExNjM1NiwiZXhwIjoxNzY2MTE2MzU2fQ.jhajj1ExhlkLLWczb_ajdm-AxgIc-8yJCNtkQifPFW0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"categ4\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/category",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"category1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/category/664545b5b44b267c97944325",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"category",
+										"664545b5b44b267c97944325"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/category/664545b5b44b267c97944325",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"category",
+										"664545b5b44b267c97944325"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "getAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/order",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOne",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/order/664cc2495a4db11bb9c4faf6",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"order",
+										"664cc2495a4db11bb9c4faf6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"Delivered\",\r\n    \"delivery_address\":{\r\n        \"country\":\"Egypt\",\r\n        \"city\":\"Giza\",\r\n        \"state\":\"Giza\",\r\n        \"building\":25,\r\n        \"street\":\"ayhaga\",\r\n        \"floor\":1,\r\n        \"appartment\":1,\r\n        \"mobile\":\"01004444444\",\r\n        \"additional_info\":\"ayhaga\",\r\n        \"location\":{\r\n            \"type\":\"Point\",\r\n            \"coordinates\": [30.0444,31.2357]\r\n\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/order/664cce9aa1da410809845dc1",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"order",
+										"664cce9aa1da410809845dc1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/order/664cc2495a4db11bb9c4faf6",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"order",
+										"664cc2495a4db11bb9c4faf6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Image",
+					"item": [
+						{
+							"name": "upload",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/MF/Downloads/Screenshot 2024-05-26 083012.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/api/images/upload",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"images",
+										"upload"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "download",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/images/download/1x3bDtnwTAo9jaWLVQHcs0GBeM-T8rfmt",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"images",
+										"download",
+										"1x3bDtnwTAo9jaWLVQHcs0GBeM-T8rfmt"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "language",
+										"value": "en"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\": \"hadeer\",\r\n    \"last_name\": \"magdy\",\r\n    \"password\": \"@123Hadeer\",\r\n    \"email\": \"hadeermagdy2185@gmail.com\",\r\n    \"role\": \"Customer\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/auth/register",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "language",
+										"value": "en"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\":\"@123Hadeer\",\r\n    \"email\":\"hadeermagdy2185@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/auth/login",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change_password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\":\"@123Abdo\",\r\n    \"password_new\":\"@123Abdoo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/auth/change-password",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/auth/logout",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "forgotPassword",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"abdelrhmanfarghaly1998@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/auth/forgot-password",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"forgot-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "resetPassword",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"otp\":\"397119\",\r\n    \"email\":\"abdelrhmanfarghaly1998@gmail.com\",\r\n    \"password\":\"12345abdo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/auth/reset-password",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"reset-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh_tokens",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/auth/refresh-tokens?refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjQ1MzA1MGY5OTMxN2NiZGZlOWI2NWEiLCJlbWFpbCI6ImFiZGVscmhtYW5mYXJnaGFseTE5OThAZ21haWwuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzE1ODExMjkzLCJleHAiOjE3MTY0MTYwOTN9.dnByiOwZWWggwAVRd9DUsez7UjJrgBr_PK-YHc6Qoi",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"refresh-tokens"
+									],
+									"query": [
+										{
+											"key": "refreshToken",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjQ1MzA1MGY5OTMxN2NiZGZlOWI2NWEiLCJlbWFpbCI6ImFiZGVscmhtYW5mYXJnaGFseTE5OThAZ21haWwuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzE1ODExMjkzLCJleHAiOjE3MTY0MTYwOTN9.dnByiOwZWWggwAVRd9DUsez7UjJrgBr_PK-YHc6Qoi"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Book",
+					"item": [
+						{
+							"name": "getAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/book",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"book"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOne",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/book/66454bfac955f8d8c33b7873",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"book",
+										"66454bfac955f8d8c33b7873"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "getAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/category",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOne",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/category/664545b5b44b267c97944325",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"category",
+										"664545b5b44b267c97944325"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Basket",
+					"item": [
+						{
+							"name": "addItem",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"book\":\"66454db958689579001d3be4\",\r\n    \"quantity\":2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/basket/item",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"basket",
+										"item"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteItem",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"book\":\"66454db958689579001d3be7\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/basket/item",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"basket",
+										"item"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateBasket",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"book\":\"66454db958689579001d3be7\",\r\n            \"quantity\":\"7\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/basket/664cc2495a4db11bb9c4faf6",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"basket",
+										"664cc2495a4db11bb9c4faf6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getMyBasket",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/basket",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"basket"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"token\":\"tok_visa\",\r\n    \"delivery_address\":{\r\n        \"country\":\"Egypt\",\r\n        \"city\":\"Giza\",\r\n        \"state\":\"Giza\",\r\n        \"building\":25,\r\n        \"street\":\"ayhaga\",\r\n        \"floor\":1,\r\n        \"appartment\":1,\r\n        \"mobile\":\"01004444444\",\r\n        \"additional_info\":\"ayhaga\",\r\n        \"location\":{\r\n            \"type\":\"Point\",\r\n            \"coordinates\": [30.0444,31.2357]\r\n\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/order/664cc2495a4db11bb9c4faf6",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"order",
+										"664cc2495a4db11bb9c4faf6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getMyOrders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/order/my",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"order",
+										"my"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzFmN2FlNGFjODY0NjNmOWRkZGEzMWQiLCJlbWFpbCI6ImhhZGVlcjk5QGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTczNTkwOTQ1NSwiZXhwIjoxNzcxOTA5NDU1fQ.wPpozjZcQxN2HDOLia7_612vFYmd4cHRxPnIIZlM_KQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1",
+			"disabled": true
+		},
+		{
+			"key": "local",
+			"value": "https://upskilling-egypt.com:3007"
+		}
+	]
+}
