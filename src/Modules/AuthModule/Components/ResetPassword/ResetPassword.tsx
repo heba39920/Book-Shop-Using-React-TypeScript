@@ -28,9 +28,9 @@ const ResetPassword: React.FC = (): JSX.Element => {
   } = useForm<FormInputs>();
   const onSubmit = async (data: FormInputs) => {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+ 
       const response = await axios.post(AUTH_URLS.resetPassword, data);
-      console.log(data);
+      console.log(response);
 
       navigate("/login");
       toast.success("password has been reset successfully", {

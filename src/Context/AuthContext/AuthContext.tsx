@@ -24,7 +24,7 @@ const AuthContextProvider: React.FC<childrenProps> = ({ children }) => {
 
   const saveData = async () => { 
     const encodedUser = localStorage.getItem("userToken"); 
-    console.log(encodedUser);
+  
 
     if (encodedUser) {
       try {

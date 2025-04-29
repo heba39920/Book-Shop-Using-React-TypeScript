@@ -4,8 +4,9 @@ import { URLS } from "../../../../Constants/MAIN-END-POINTS";
 import img1 from "../../../../assets/images/book3 4.png";
 import img2 from "../../../../assets/images/book16 1.png";
 import img3 from "../../../../assets/images/book4 4.png";
+import TextField from '@mui/material/TextField';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { Box, Grid, Typography, Button, Menu, MenuItem } from "@mui/material";
+import { Box, Grid, Typography, Button, Menu, MenuItem} from "@mui/material";
 import TablePagination from "@mui/material/TablePagination";
 import { NavLink } from "react-router-dom";
 import NewReleaseCard from "../NewRelease/NewReleaseCard";
@@ -13,6 +14,7 @@ import ViewComfyAltIcon from "@mui/icons-material/ViewComfyAlt";
 import ViewHeadlineIcon from "@mui/icons-material/ViewHeadline";
 import BookCard from "./BookCard";
 import { RotatingLines } from "react-loader-spinner";  
+import SideBarItems from "./SideBarItems";
 const isDisabled = true;
 const imgs = [img1, img2, img3];
 export default function Books() {
@@ -128,6 +130,7 @@ export default function Books() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          
         }}
       >
         <Typography sx={{ textDecoration: "none" }}>
@@ -153,16 +156,33 @@ export default function Books() {
         </Typography>
       </Box>
       <Box component="section" sx={{ padding: "3rem" }}>
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 6 }}>
-          <Grid item md={3}>
-            sidebar
+  
+     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 6 }}>
+          <Grid item md={3} xs={12}>
+            <Box sx={{marginTop:'-12px'}}>
+              <SideBarItems title='Price'>
+                <Box sx={{display:'flex', justifyContent:'center', alignItems:'center', color:'#393280'}}>
+                <Typography sx={{marginRight:'5px'}}>$</Typography>
+                <TextField id="outlined-basic"  variant="outlined" />
+                <Typography sx={{marginInline:'20px 15px', fontSize:'18px', fontWeight:'500', color:'#888888'}}>to</Typography>
+                <Typography sx={{marginRight:'5px'}}>$</Typography>
+                <TextField id="outlined-basic"  variant="outlined" />
+                </Box>
+                </SideBarItems>
+              <SideBarItems title='Product type'>.</SideBarItems>
+              <SideBarItems title='Availability'>.</SideBarItems>
+              <SideBarItems title='Brand'>.</SideBarItems>
+              <SideBarItems title='Color'>.</SideBarItems>
+              <SideBarItems title='Material'>.</SideBarItems>
+            </Box>
           </Grid>
-          <Grid item md={9}>
+          <Grid item  md={9} xs={12}>
             <Typography
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                flexWrap:{xs:'wrap' ,md:'nowrap'}
               }}
             >
               <Button
@@ -172,7 +192,8 @@ export default function Books() {
                   backgroundColor: "transparent",
                   color: "#393280",
                   boxShadow: 0,
-                  fontWeight: 700,
+                  fontWeight: {md:700 , xs:400},
+                  fontSize:{xs:'14px'}
                 }}
                 onClick={(e) => setAnchorEl(e.currentTarget)}
               >
@@ -229,20 +250,22 @@ export default function Books() {
               container
               rowSpacing={1}
               columnSpacing={{ xs: 1, sm: 2, md: 6 }}
+              sx={{justifyContent:'center', alignItems:'center'}}
             >
               {currentBooks.map((book, index) =>
                 fullWidth ? (
-                  <Grid item md={12} xs={8}>
+                  <Grid item md={12} xs={12}>
                     <BookCard 
                     key={book._id}
                       image={imgs.length > 0 ? imgs[index % imgs.length] : ""}
                       author={book?.author}
                       name={book?.name}
                       price={book.price}
+                      _id={book._id}  
                     />
                   </Grid>
                 ) : (
-                  <Grid item md={4}  xs={12}>
+                  <Grid item md={4}  xs={6}>
                     <NewReleaseCard
                     _id={book._id}
                     key={book._id}
@@ -257,6 +280,7 @@ export default function Books() {
             </Grid>
           </Grid>
         </Grid>
+
       </Box>
     </>
   );

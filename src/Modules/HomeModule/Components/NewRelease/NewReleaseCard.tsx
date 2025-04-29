@@ -21,10 +21,7 @@ interface NewReleaseCardProps {
   price: number;  
 }  
 
-interface item {
-  book : string,
- quantity: number,
-}
+
 
 export default function NewReleaseCard({  
   _id,
@@ -35,18 +32,26 @@ export default function NewReleaseCard({
 }: NewReleaseCardProps) {  
   const [isLoading, setIsLoading] = useState(false);  
 
-  const addToCart = async (data: item) => {  
+  const addToCart = async (_id: string, quantity:number) => {  
     setIsLoading(true);  
 
+
     try {  
-      const response = await axios.post(URLS.addItem, data);  
+      const token = localStorage.getItem('userToken'); 
+      const response = await axios.post(URLS.addItem, {
+        book:_id,
+        quantity
+      }, {  
+        headers: {  
+          Authorization: `Bearer ${token}`
+        }  });  
       console.log(response);  
       toast.success("Book added to cart successfully!", {  
         position: "top-center",  
         autoClose: 3000,  
       });  
     } catch (error) {  
-      console.log(error);  
+      console.error(error);  
       toast.error((error as Error).message || "Failed to add book", {  
         position: "top-center",  
         autoClose: 3000,  
@@ -114,18 +119,17 @@ export default function NewReleaseCard({
               transform: 'translateY(0)',  
               opacity: 0,  
             }}  
-      onClick={(e) => {  
-        e.stopPropagation();
+    onClick={(e) => {  
+      e.stopPropagation();
 
-        const quantity = 10;
-        
-        addToCart({ book: _id, quantity });    
-      }}  
+      const quantity = 0; 
+      addToCart(_id, quantity);    
+    }}  
           >  
             Add to Cart  
           </Button>  
         </Box>  
-        <CardContent>  
+        <CardContent sx={{textAlign:'center'}}>  
           <Typography gutterBottom variant="h5" sx={{ fontSize: '22px', color: '#393280', fontWeight: '600' }}>  
             {name}  
           </Typography>  

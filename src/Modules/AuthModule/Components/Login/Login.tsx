@@ -47,9 +47,7 @@ const {saveData}= useAuthContext() as AuthContextType;
          
     
       const response = await axios.post(AUTH_URLS.login, data);
-     console.log(      response.data?.accessToken
-     );
-      localStorage.setItem("userToken", response?.data?.accessToken);
+      localStorage.setItem("userToken", response?.data?.data?.accessToken);
       saveData();
       navigate("/dashboard");
       toast.success("Logged in successfully", {

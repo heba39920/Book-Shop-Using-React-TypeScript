@@ -7,12 +7,18 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import axios from "axios";
+import { useState } from "react";
+import { URLS } from "../../../../Constants/MAIN-END-POINTS";
+import { toast } from "react-toastify";
+import { RotatingLines } from "react-loader-spinner";
 
 interface BookCardProps {
   image: string;
   name: string;
   author: string;
   price: number;
+  _id:string;
 }
 
 export default function BookCard({
@@ -20,7 +26,53 @@ export default function BookCard({
   name,
   author,
   price,
+  _id
 }: BookCardProps) {
+    const [isLoading, setIsLoading] = useState(false);  
+  
+  const addToCart = async (_id: string, quantity:number) => {  
+    setIsLoading(true);  
+
+
+    try {  
+      const token = localStorage.getItem('userToken'); 
+      const response = await axios.post(URLS.addItem, {
+        book:_id,
+        quantity
+      }, {  
+        headers: {  
+          Authorization: `Bearer ${token}`
+        }  });  
+      console.log(response);  
+      toast.success("Book added to cart successfully!", {  
+        position: "top-center",  
+        autoClose: 3000,  
+      });  
+    } catch (error) {  
+      console.error(error);  
+      toast.error((error as Error).message || "Failed to add book", {  
+        position: "top-center",  
+        autoClose: 3000,  
+      });  
+    } finally {  
+      setIsLoading(false);  
+    }  
+  }; 
+   if (isLoading) {  
+      return (  
+        <Box sx={{display:'flex', justifyContent:'center', alignItems:'center' , height:'100vh'}}>  
+          <RotatingLines 
+            visible={true}  
+            height="96"  
+            width="96"  
+            color="grey"  
+            strokeWidth="5"  
+            animationDuration="0.75"  
+            ariaLabel="rotating-lines-loading"  
+          />  
+        </Box>  
+      );  
+    }  
   return (
     <Card
       sx={{
@@ -55,10 +107,6 @@ export default function BookCard({
           <Grid item md={8}>
             <CardContent
               sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
                 textAlign: "center",
               }}
             >
@@ -69,6 +117,8 @@ export default function BookCard({
                   color: "#393280",
                   fontWeight: "600",
                   marginBlock: "20px",
+                textAlign: "center",
+
                 }}
               >
                 {name}
@@ -101,8 +151,17 @@ export default function BookCard({
                   py: 1,
                   backgroundColor: "#EF6B4A",
                 }}
+                onClick={(e) => {  
+                  e.stopPropagation();
+            
+                  const quantity = 0; 
+                  addToCart(_id, quantity);    
+                }}  
+                      
+                
               >
                 Add to Cart
+                
               </Button>
             </CardContent>
           </Grid>

@@ -1,4 +1,3 @@
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -18,13 +17,14 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import PinterestIcon from "@mui/icons-material/Pinterest";
-import { Avatar } from "@mui/material";
+import { Avatar} from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useState } from "react";
 const drawerWidth = 230;
 const navItems = [
   { title: "HOME", path: "home" },
@@ -36,7 +36,7 @@ const navItems = [
 ];
 
 export default function NavBar() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -44,7 +44,7 @@ export default function NavBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -215,7 +215,7 @@ export default function NavBar() {
     </div>
               
               <Divider orientation="vertical" variant="middle" flexItem />
-              <ShoppingBagOutlinedIcon sx={{fontSize:'1.9rem' , color:"#393280"}}/>
+             <Link to='cart' style={{margin:0, padding:0}}> <ShoppingBagOutlinedIcon sx={{fontSize:'1.9rem' , color:"#393280"}}/></Link>
               <Divider orientation="vertical" variant="middle" flexItem />
               <FavoriteBorderOutlinedIcon sx={{fontSize:'1.9rem'  , color:'#393280'}}/>
             </Box>
@@ -244,3 +244,5 @@ export default function NavBar() {
     </>
   );
 }
+
+

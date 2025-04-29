@@ -19,8 +19,10 @@ const ForgetPassword : React.FC = (): JSX.Element =>{
    const onSubmit = async (data:FormInputs) => { 
    
     try {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+       
         const response = await axios.post(AUTH_URLS.forgotPassword, data);
+        console.log(response);
+        
       
         navigate("/reset_password");
         toast.success("OTP has been sent successfully",{
